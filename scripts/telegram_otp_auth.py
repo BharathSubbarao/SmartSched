@@ -142,7 +142,7 @@ async def verify(phone):
 ##################################################################
 async def shutdown_app(shutdown_event):
     await asyncio.sleep(60)
-    print(datetime.now().timestamp(),"Shutting down after 180 seconds...")
+    print(datetime.now().timestamp(),"Shutting down after 60 seconds...")
     shutdown_event.set()
 
 ##################################################################

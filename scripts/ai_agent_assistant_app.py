@@ -12,7 +12,7 @@ refresh_system_message()
 
 # ⏺️ Main app
 with gr.Blocks() as demo:
-    gr.Markdown("## 🧠 Smart Calendar Assistant")
+    gr.Markdown("## 🧠 Smart Scheduler")
 
     chatbot = gr.Chatbot()
     user_input = gr.Textbox(

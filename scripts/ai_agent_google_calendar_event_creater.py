@@ -122,6 +122,8 @@ def ai_agent_create_calendar_event():
   if not MODEL:
       logger('INFO', "LLM_MODEL not defined in the environment file. Using default model.")
       MODEL = 'gpt-4o-mini'  # Default model if not defined in the environment file
+  else:
+      logger('INFO',f"LLM_MODEL used is {MODEL}")
 
   api_key = os.getenv('OPENAI_API_KEY')
 
@@ -205,6 +207,10 @@ def ai_agent_create_calendar_event():
   if INCLUDE_GMAIL == "True":
     user_prompt += """
     For any attachments, parse the attachment and consider if there are any appointments in the attachment image or any other format.
+    If the attachment contains a flight, train, or bus ticket, extract the relevant travel details and convert them into a 
+    calendar appointment. Use the departure and arrival dates and times from the ticket to set the appointment duration. 
+    Include the origin and destination in the appointment title or description. Add the list of passengers (if available) 
+    to the appointment body.
     If there are any appointments in the attachment, include them in the above format.
     Here are my emails and email attachement details: \n
     """ 
