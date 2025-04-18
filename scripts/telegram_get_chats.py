@@ -81,7 +81,7 @@ async def fetch_required_messages(client, after_ts, before_ts):
         messages = await client.get_messages(dialog.id, limit=9999)  # Adjust limit as needed
 
         sorted_messages = sorted(messages, key=lambda msg: msg.date)
-        print(datetime.now()," - Sorted ",dialog.name ,"Messages - Done")
+        # print(datetime.now()," - Sorted ",dialog.name ,"Messages - Done")
 
         for msg in sorted_messages:
 
